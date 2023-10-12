@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weather App Have a sunny day">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title> Have a sunny day</title>
+    <title> Have a sunny day Weather App</title>
     <link rel="icon" href="img/titleIcon.png" type="image/png">
 </head>
 
 <body>
     <div class="container">
-        <div>
-            <div class="card">
+        <!-- Section containing today's weather forecast -->
+        <section class="today-weather-section">
+            <div class="weather-card">
+                <!-- Input field for entering the city name -->
                 <div class="search">
-                    <input type="text" placeholder="Enter city name" spellcheck="false" required pattern="[A-Za-z\s]+">
-                    <button><img src="img/search.png" alt="enter search"></button>
+                    <input type="text" name="city" placeholder="Enter city name" spellcheck="false" 
+                    aria-label="Enter city name" required pattern="[A-Za-z\s]+" 
+                    title="Please enter a valid city name (letters and spaces only)">
+                    <button><img src="img/search.png" alt="Please enter search"></button>
                 </div>
+                <!-- Container for displaying potential errors -->
                 <div class="error"></div>
+                <!-- Container for weather information -->
                 <div class="weather">
                     <div class="time">
                         <p class="current-time paragraph-text"></p>
@@ -32,164 +38,169 @@
                     <div class="details">
                         <div class="details-left">
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/windstorm" title="windstorm icons">Windstorm icons created by Carme Parramon - Flaticon</a> -->
-                                <img src="img/windy.png" class="wind-img" alt=""
-                                    title="Windstorm icons created by Carme Parramon - Flaticon">
+                                <!-- <a href="https://www.flaticon.com/free-icons/windstorm" title="windstorm icons">
+                                    Windstorm icons created by Carme Parramon - Flaticon</a> -->
+                                <img src="img/windy.png" class="wind-img" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Wind Speed: <span class="wind"></span></p>
                             </div>
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">Humidity icons created by Muhammad Atif - Flaticon</a> -->
-                                <img src="img/humidity1.png" alt="">
+                                <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">
+                                    Humidity icons created by Muhammad Atif - Flaticon</a> -->
+                                <img src="img/humidity1.png" alt="" aria-hidden="true" >
                                 <!-- <p class="humidity"></p> -->
                                 <p class="paragraph-text">Humidity: <span class="humidity"></span></p>
                             </div>
                             <div class="details-item">
-                                <img src="img/sunrise.png" alt="sunrise icons"
-                                    title="Sunrise icons created by kosonicon - Flaticon">
+                                <img src="img/sunrise.png" alt="sunrise icons" aria-hidden="true">
                                 <p class="sunrise paragraph-text"></p>
                             </div>
                         </div>
                         <div class="details-right">
                             <div class="details-item">
-                                <img src="img/windy.png" class="wind-img" alt=""
-                                    title="Windstorm icons created by Carme Parramon - Flaticon">
+                                <img src="img/windy.png" class="wind-img" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Wind Gusts: <span class="max-wind-speed"></span></p>
                             </div>
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/barometer" title="barometer icons">Barometer icons created by Dragon Icons - Flaticon</a> -->
-                                <img src="img/barometer_white.png" alt="" title="barometer icons">
+                                <!-- <a href="https://www.flaticon.com/free-icons/barometer" title="barometer icons">
+                                    Barometer icons created by Dragon Icons - Flaticon</a> -->
+                                <img src="img/barometer_white.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">pressure: <span class="prresure"></span></p>
                             </div>
                             <div class="details-item">
-                                <img src="img/sunset-.png" alt="sunset icons"
-                                    title="Sunset icons created by kosonicon - Flaticon">
+                                <img src="img/sunset-.png" alt="" aria-hidden="true">
                                 <p class="sunset paragraph-text"></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="future-weather-container">
-            <div class="card">
+        </section>
+         <!-- Future Weather Forecast Section -->
+        <section class="future-weather-section">
+            <div class="weather-card">
                 <div class="future-weather">
-                    <div class="future-left">
+                    <div class="future-top">
                         <p class="day-of-week paragraph-text"></p>
-                        <!-- <a href="https://www.flaticon.com/free-icons/weather" title="weather icons">Weather icons created by Freepik - Flaticon</a> -->
-                        <img src="img/sun.png" class="future-icon" alt="Future Weather Icon">
+                        <!-- <a href="https://www.flaticon.com/free-icons/weather" title="weather icons">
+                            Weather icons created by Freepik - Flaticon</a> -->
+                        <img src="img/sun.png" class="future-icon" alt="" aria-hidden="true">
                         <div class="future-temp"></div>
                         <p class="paragraph-text">Feels like: <span class="future-feels-like"></span></p>
                     </div>
                     <div class="future-weather-details">
+                        <!-- Left Column: Wind and Humidity -->
                         <div class="future-weather-left">
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/wind" title="wind icons">Wind icons created by Freepik - Flaticon</a> -->
-                                <img src="img/windy_24px.png" alt="wind icons"
-                                    title="Wind icons created by Freepik - Flaticon">
+                                <!-- <a href="https://www.flaticon.com/free-icons/wind" title="wind icons">
+                                    Wind icons created by Freepik - Flaticon</a> -->
+                                <img src="img/windy_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Wind Speed: <span class="future-wind"></span></p>
                             </div>
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">Humidity icons created by adriansyah - Flaticon</a> -->
-                                <img src="img/future_humidity.png" alt=""
-                                    title="Humidity icons created by adriansyah - Flaticon">
+                                <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">
+                                    Humidity icons created by adriansyah - Flaticon</a> -->
+                                <img src="img/future_humidity.png" alt="" aria-hidden="true">
                                 <p class="future-humidity"></p>
                                 <p class="paragraph-text"> Humidity</p>
                             </div>
                         </div>
+                         <!-- Right Column: Wind Gusts and Pressure -->
                         <div class="future-weather-right">
                             <div class="details-item">
-                                <img src="img/windy_24px.png" alt="wind icons"
-                                    title="Wind icons created by Freepik - Flaticon">
+                                <img src="img/windy_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Wind Gusts: <span class="future-max-wind"></span></p>
                             </div>
                             <div class="details-item">
-                                <img src="img/barometer_white_24px.png" alt="">
+                                <img src="img/barometer_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Pressure: <span class="future-pressure"></span> </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="weather-card">
                 <div class="future-weather">
-                    <div class="future-left">
+                    <div class="future-top">
                         <p class="day-of-week paragraph-text"></p>
-                        <!-- <a href="https://www.flaticon.com/free-icons/rain" title="rain icons">Rain icons created by Freepik - Flaticon</a> -->
-                        <img src="img/rain.png" class="future-icon" alt="Future Weather Icon">
+                        <!-- <a href="https://www.flaticon.com/free-icons/rain" title="rain icons">
+                            Rain icons created by Freepik - Flaticon</a> -->
+                        <img src="img/rain.png" class="future-icon" alt="" aria-hidden="true">
                         <div class="future-temp"></div>
                         <p class="paragraph-text">Feels like: <span class="future-feels-like"></span></p>
                     </div>
                     <div class="future-weather-details">
+                        <!-- Left Column: Wind and Humidity -->
                         <div class="future-weather-left">
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/wind" title="wind icons">Wind icons created by Freepik - Flaticon</a> -->
-                                <img src="img/windy_24px.png" alt="wind icons"
-                                    title="Wind icons created by Freepik - Flaticon">
+                                <!-- <a href="https://www.flaticon.com/free-icons/wind" title="wind icons">
+                                    Wind icons created by Freepik - Flaticon</a> -->
+                                <img src="img/windy_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Wind Speed: <span class="future-wind"></span></p>
                             </div>
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">Humidity icons created by adriansyah - Flaticon</a> -->
-                                <img src="img/future_humidity.png" alt=""
-                                    title="Humidity icons created by adriansyah - Flaticon">
+                                <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">
+                                    Humidity icons created by adriansyah - Flaticon</a> -->
+                                <img src="img/future_humidity.png" alt="" aria-hidden="true">
                                 <p class="future-humidity"> </p>
                                 <p class="paragraph-text">Humidity</p>
                             </div>
                         </div>
+                         <!-- Right Column: Wind Gusts and Pressure -->
                         <div class="future-weather-right">
                             <div class="details-item">
-                                <img src="img/windy_24px.png" alt="wind icons"
-                                    title="Wind icons created by Freepik - Flaticon">
+                                <img src="img/windy_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Wind Gusts: <span class="future-max-wind"></span></p>
                             </div>
                             <div class="details-item">
-                                <img src="img/barometer_white_24px.png" alt="">
+                                <img src="img/barometer_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Pressure: <span class="future-pressure"></span> </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="weather-card">
                 <div class="future-weather">
-                    <div class="future-left">
+                    <div class="future-top">
                         <p class="day-of-week paragraph-text"></p>
-                        <!-- <a href="https://www.flaticon.com/free-icons/winter" title="winter icons">Winter icons created by Freepik - Flaticon</a> -->
-                        <img src="img/snow.png" class="future-icon" alt="Future Weather Icon">
+                        <!-- <a href="https://www.flaticon.com/free-icons/winter" title="winter icons">
+                            Winter icons created by Freepik - Flaticon</a> -->
+                        <img src="img/snow.png" class="future-icon" alt="" aria-hidden="true">
                         <div class="future-temp"></div>
                         <p class="paragraph-text">Feels like: <span class="future-feels-like"></span></p>
                     </div>
                     <div class="future-weather-details">
+                        <!-- Left Column: Wind and Humidity -->
                         <div class="future-weather-left">
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/wind" title="wind icons">Wind icons created by Freepik - Flaticon</a> -->
-                                <img src="img/windy_24px.png" alt="wind icons"
-                                    title="Wind icons created by Freepik - Flaticon">
+                                <!-- <a href="https://www.flaticon.com/free-icons/wind" title="wind icons">
+                                    Wind icons created by Freepik - Flaticon</a> -->
+                                <img src="img/windy_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Wind Speed: <span class="future-wind"></span></p>
                             </div>
                             <div class="details-item">
-                                <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">Humidity icons created by adriansyah - Flaticon</a> -->
-                                <img src="img/future_humidity.png" alt=""
-                                    title="Humidity icons created by adriansyah - Flaticon">
+                                <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">
+                                    Humidity icons created by adriansyah - Flaticon</a> -->
+                                <img src="img/future_humidity.png" alt="" aria-hidden="true">
                                 <p class="future-humidity"> </p>
                                 <p class="paragraph-text">Humidity</p>
                             </div>
                         </div>
+                         <!-- Right Column: Wind Gusts and Pressure -->
                         <div class="future-weather-right">
                             <div class="details-item">
-                                <img src="img/windy_24px.png" alt="wind icons"
-                                    title="Wind icons created by Freepik - Flaticon">
+                                <img src="img/windy_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Wind Gusts: <span class="future-max-wind"></span></p>
                             </div>
                             <div class="details-item">
-                                <img src="img/barometer_white_24px.png" alt="">
+                                <img src="img/barometer_24px.png" alt="" aria-hidden="true">
                                 <p class="paragraph-text">Pressure: <span class="future-pressure"></span> </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </body>
-
 </html>

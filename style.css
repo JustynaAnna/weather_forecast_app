@@ -32,7 +32,7 @@ body {
     }
 }
 
-.card {
+.weather-card {
     /* max-width: 570px; */
     background-image: url(img/stars6.jpg);
     background-position: center;
@@ -159,11 +159,11 @@ h2 {
     margin-bottom: 20px;
 }
 
-.future-left {
+.future-top {
     margin-top: -20px;
 }
 
-.future-left img, .weather-icon {
+.future-top img, .weather-icon {
     background-color: rgb(180 184 208 / 52%);
     border-radius: 50%;
     margin-top: 15px;
