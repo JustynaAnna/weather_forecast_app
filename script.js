@@ -1,12 +1,15 @@
+import config from "./config.js";
+
 document.addEventListener("DOMContentLoaded", function () {
-  const apiKey = "93c17107b9d0b9d75a192e66ddb20e38";
-  const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
-  // https://api.openweathermap.org/data/2.5/forecast/hourly?units=metric&q=
+  const apiKey = config.apiKey;
+  const apiUrl = config.apiUrl;
   const searchBox = document.querySelector('.search input');
   const searchBtn = document.querySelector('.search button');
   const weatherIcon = document.querySelector('.weather-icon');
 
+  // An asynchronous function checking the weather for a specific city.
   async function checkWeather(city) {
+    // Calling the OpenWeatherMap API and waiting for a response.
     try {
       const response = await fetch(apiUrl + city + `&appid=${apiKey}&cnt=4`);
       console.log(response);
@@ -36,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // A function converting time to the user's local time.
   function convertToUserLocalTime(weatherData) {
     const timezoneOffsetSeconds = weatherData.city.timezone;// Przesunięcie czasowe w sekundach
     // Aktualny czas serwera OpenWeatherMap (w UTC)
@@ -45,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return userLocalTime;
   }
 
+  // A function displaying current weather data.
   function displayWeatherData(userLocalTime, weatherData) {
     const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
     const formattedDate = userLocalTime.toLocaleDateString(undefined, options);
@@ -65,8 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Funkcja do uzyskania informacji o wschodzie i zachodzie słońca
-
+  //A function for obtaining sunrise and sunset information.
   function getSunriseAndSunset(weatherData) {
     const sunriseTimestamp = weatherData.city.sunrise * 1000; // Przelicz na milisekundy
     const sunsetTimestamp = weatherData.city.sunset * 1000; // Przelicz na milisekundy
@@ -80,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
+  // A function displaying the forecast for the upcoming days.
   function displayWeatherForNextDays(weatherData) {
     const futureWeatherElements = document.querySelectorAll('.future-weather');
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
