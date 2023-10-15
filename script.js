@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
       futureWeatherElement.querySelector('.day-of-week').textContent = dayOfWeek;
       futureWeatherElement.querySelector('.future-icon').src = icon;
       futureWeatherElement.querySelector('.future-temp').textContent = temperature;
+      futureWeatherElement.querySelector('.future-weather-description').textContent = forecast.weather[0].description;
       futureWeatherElement.querySelector('.future-feels-like').innerHTML = Math.round(forecast.main.feels_like) + "°C";
       futureWeatherElement.querySelector('.future-wind').innerHTML = forecast.wind.speed + " km/h";
       futureWeatherElement.querySelector('.future-humidity').innerHTML = forecast.main.humidity + "% &nbsp;";

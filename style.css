@@ -35,6 +35,7 @@ body, .weather-card {
 }
 
 .paragraph-text {
+    padding: 0 10px;
     font-size: 19px;
     text-transform: uppercase;
     white-space: nowrap;
@@ -110,6 +111,7 @@ h2 {
 }
 
 .feels-like-temp,
+.future-temp,
 .future-feels-like {
     font-size: 24px;
 }
@@ -162,6 +164,9 @@ h2 {
     border-radius: 50%;
     margin-top: 15px;
     padding: 5px;
+}
+.future-weather-description{
+    margin: 15px 0;
 }
 
 .future-weather-details {
