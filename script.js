@@ -1,8 +1,8 @@
-import config from "./config.js";
+// import config from "./config.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const apiKey = config.apiKey;
-  const apiUrl = config.apiUrl;
+  // const apiKey = config.apiKey;
+  // const apiUrl = config.apiUrl;
   const searchBox = document.querySelector('.search input');
   const searchBtn = document.querySelector('.search button');
   const weatherIcon = document.querySelector('.weather-icon');
