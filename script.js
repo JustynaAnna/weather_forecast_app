@@ -1,8 +1,6 @@
-require('dotenv').config();
-
 document.addEventListener("DOMContentLoaded", function () {
-  const apiKey = process.env.API_KEY;
-  const apiUrl = process.env.API_URL;
+  const apiKey = process.env.MY_API_KEY;
+  const apiUrl = process.env.MY_API_URL;
   const searchBox = document.querySelector('.search input');
   const searchBtn = document.querySelector('.search button');
   const weatherIcon = document.querySelector('.weather-icon');
