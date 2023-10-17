@@ -1,7 +1,6 @@
-// import config from './config.js';
 document.addEventListener("DOMContentLoaded", function () {
-  // const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
-  // const apiKey = config.apiKey;
+  const apiKey = MY_API_KEY;
+  const apiUrl = MY_API_URL
   const searchBox = document.querySelector('.search input');
   const searchBtn = document.querySelector('.search button');
   const weatherIcon = document.querySelector('.weather-icon');

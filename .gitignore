@@ -1,5 +1,6 @@
 images/
-.env.local
 node_modules/
 package.json
 package-lock.json
+config.js
+.env
