@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const apiKey = MY_API_KEY;
-  const apiUrl = MY_API_URL
+  const apiKey = secret.MY_API_KEY;
+  const apiUrl = secret.MY_API_URL
   const searchBox = document.querySelector('.search input');
   const searchBtn = document.querySelector('.search button');
   const weatherIcon = document.querySelector('.weather-icon');
