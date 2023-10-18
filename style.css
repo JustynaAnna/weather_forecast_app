@@ -90,13 +90,19 @@ body, .weather-card {
     margin-top: 20px;
 }
 
-.weather, .error {
+.weather, 
+.error, 
+.future-weather-section {
     display: none;
 }
 
 .weather-icon {
     width: 170px;
     margin-bottom: -30px;
+}
+
+.weather-description{
+    margin-top: 30px;
 }
 
 .weather h1,
@@ -166,7 +172,7 @@ h2 {
     padding: 5px;
 }
 .future-weather-description{
-    margin: 15px 0;
+    margin: 25px 0;
 }
 
 .future-weather-details {

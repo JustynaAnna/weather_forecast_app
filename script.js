@@ -30,11 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.querySelector('.error').style.display = "none";
       document.querySelector('.weather').style.display = "block";
+      document.querySelector('.future-weather-section').style.display = "block";
       console.log(weatherData);
     } catch (error) {
       document.querySelector('.error').textContent = `An error occured: ${error.message}`;
       document.querySelector('.error').style.display = "block";
       document.querySelector('.weather').style.display = "none";
+      document.querySelector('.future-weather-section').style.display = "none";
     }
   }
 
