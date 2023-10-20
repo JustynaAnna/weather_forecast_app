@@ -24,9 +24,9 @@ jobs:
 
       - name: Build and copy files
         run: |
-          mkdir public
-          cp -r ./* public
-          cp -r ./.github public
+          mkdir public_html
+          cp -r ./* public_html
+          cp -r ./.github public_html
 
       - name: Deploy to GitHub Pages
         run: |
