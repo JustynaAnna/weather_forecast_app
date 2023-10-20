@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   // const apiKey = data.apiKey;
 
   const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
-  const apiKey = process.env.MY_API_KEY;
-  
 
   // An asynchronous function checking the weather for a specific city.
   async function checkWeather(city) {
