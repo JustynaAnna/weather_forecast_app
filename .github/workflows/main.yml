@@ -26,7 +26,7 @@ jobs:
         run: |
           mkdir public
           cp -r ./* public
-          cp ./.github/workflows/main.yml public
+          cp -r ./.github/workflows public
 
       - name: Deploy to GitHub Pages
         run: |
