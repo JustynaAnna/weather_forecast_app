@@ -30,7 +30,6 @@ jobs:
           # Install the GitHub Pages deployment tool
           npm install -g gh-pages
            export apiKey=$MY_API_KEY
-           export apiUrl=$MY_API_URL
 
           # Deploy the project to GitHub Pages
           gh-pages -d build
