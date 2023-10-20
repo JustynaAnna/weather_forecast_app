@@ -24,10 +24,7 @@ jobs:
 
       - name: Build and copy files
         run: |
-          mkdir temp_public_html
-          cp -r ./* temp_public_html
-          mv temp_public_html/. ./
-          rmdir temp_public_html
+          cp -r ./* public_html
           cp -r ./.github public_html
 
       - name: Deploy to GitHub Pages
