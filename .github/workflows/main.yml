@@ -22,8 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Build and copy files
+        run: |
+          mkdir public
+          cp -r ./* public
+          cp ./.github/workflows/main.yml public
 
       - name: Deploy to GitHub Pages
         run: |
