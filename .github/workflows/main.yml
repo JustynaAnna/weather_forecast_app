@@ -32,5 +32,5 @@ jobs:
            export apiKey=$MY_API_KEY
 
           # Deploy the project to GitHub Pages
-          gh-pages -d build
+          npx gh-pages -d build
 
