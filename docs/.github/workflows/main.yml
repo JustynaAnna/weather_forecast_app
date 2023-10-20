@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env: 
+      apiKey: ${{ secrets.MY_API_KEY }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        run: |
+          # Install the GitHub Pages deployment tool
+          npm install -g gh-pages
+           export apiKey=$MY_API_KEY
+
+          # Deploy the project to GitHub Pages
+          npx gh-pages -d build
+
