@@ -8,29 +8,26 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env: 
+    env:
       apiKey: ${{ secrets.MY_API_KEY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
       - name: Deploy to GitHub Pages
         run: |
-          # Install the GitHub Pages deployment tool
-          npm install -g gh-pages
-           export apiKey=$MY_API_KEY
+          # Przenoś pliki z katalogu 'docs' do głównego katalogu repozytorium
+          mv docs/* ./
 
-          # Deploy the project to GitHub Pages
-          npx gh-pages -d build
+          # Dodaj zmiany do repozytorium
+          git add .
+          git commit -m "Aktualizacja strony GitHub Pages"
+          git push
 
+          # Ustaw apiKey jako zmienną środowiskową w Twoim skrypcie wdrożenia
+          export API_KEY=$apiKey
+
+          # Opublikuj na GitHub Pages
+          git checkout gh-pages
+          git merge main
+          git push origin gh-pages
