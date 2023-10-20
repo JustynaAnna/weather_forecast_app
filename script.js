@@ -1,10 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const searchBox = document.querySelector('.search input');
   const searchBtn = document.querySelector('.search button');
   const weatherIcon = document.querySelector('.weather-icon');
+  // const response = await fetch('http://localhost:5500/api/api-key');
+  // const data = await response.json();
+  // const apiKey = data.apiKey;
 
   const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
-  const apiKey = "93c17107b9d0b9d75a192e66ddb20e38";
+  
 
   // An asynchronous function checking the weather for a specific city.
   async function checkWeather(city) {
