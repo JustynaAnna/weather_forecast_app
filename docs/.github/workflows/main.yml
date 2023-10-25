@@ -25,8 +25,7 @@ jobs:
           git push
 
           # Ustaw apiKey jako zmienną środowiskową w Twoim skrypcie wdrożenia
-          export API_KEY=$apiKey
-
+          echo "<script>const apiKey = '${{ secrets.MY_API_KEY }}';</script>" >> index.html
           # Opublikuj na GitHub Pages
           git checkout gh-pages
           git merge main
