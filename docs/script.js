@@ -1,15 +1,19 @@
+// require('otenv').config();
 document.addEventListener("DOMContentLoaded", async function () {
   const searchBox = document.querySelector('.search input');
   const searchBtn = document.querySelector('.search button');
   const weatherIcon = document.querySelector('.weather-icon');
   // const response = await fetch('http://localhost:5500/api/api-key');
   // const data = await response.json();
-  // const apiKey = data.apiKey;
-
+  // const apiKey = process.env;
+ 
   const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
 
   // An asynchronous function checking the weather for a specific city.
   async function checkWeather(city) {
+    let weather = document.querySelector('.weather').style;
+    let error = document.querySelector('.error');
+    let futureSection = document.querySelector('.future-weather-section').style;
     // Calling the OpenWeatherMap API and waiting for a response.
     try {
       const response = await fetch(apiUrl + city + `&appid=${apiKey}&cnt=4`);
@@ -24,21 +28,21 @@ document.addEventListener("DOMContentLoaded", async function () {
       const iconUrl = `https://openweathermap.org/img/wn/${weatherMain.toLowerCase()}@2x.png`;
       weatherIcon.src = iconUrl;
 
-      // Dodaj informacje o wschodzie i zachodzie słońca
+      // Add Sunrise and Sunset Information
       const { sunrise, sunset } = getSunriseAndSunset(weatherData);
       document.querySelector(".sunrise").textContent = `Sunrise: ${sunrise}`;
       document.querySelector(".sunset").textContent = `Sunset: ${sunset}`;
       displayWeatherForNextDays(weatherData);
 
-      document.querySelector('.error').style.display = "none";
-      document.querySelector('.weather').style.display = "block";
-      document.querySelector('.future-weather-section').style.display = "block";
+      error.style.display = "none";
+      weather.display = "block";
+      futureSection.display = "block";
       console.log(weatherData);
-    } catch (error) {
-      document.querySelector('.error').textContent = `An error occured: ${error.message}`;
-      document.querySelector('.error').style.display = "block";
-      document.querySelector('.weather').style.display = "none";
-      document.querySelector('.future-weather-section').style.display = "none";
+    } catch (exception) {
+      error.textContent = `An error occured: ${exception.message}`;
+      error.style.display = "block";
+      weather.display = "none";
+      futureSection.display = "none";
     }
   }
 
@@ -47,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const timezoneOffsetSeconds = weatherData.city.timezone;// Przesunięcie czasowe w sekundach
     // Aktualny czas serwera OpenWeatherMap (w UTC)
     const serverTimeUTC = new Date(Date.now() + timezoneOffsetSeconds * 1000);
-    // Teraz możesz przeliczyć czas na lokalny czas użytkownika
+    // Teraz mogę przeliczyć czas na lokalny czas użytkownika
     const userLocalTime = new Date(serverTimeUTC.getTime() + (new Date().getTimezoneOffset() * 60000));
     return userLocalTime;
   }
@@ -75,8 +79,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   //A function for obtaining sunrise and sunset information.
   function getSunriseAndSunset(weatherData) {
-    const sunriseTimestamp = weatherData.city.sunrise * 1000; // Przelicz na milisekundy
-    const sunsetTimestamp = weatherData.city.sunset * 1000; // Przelicz na milisekundy
+    const sunriseTimestamp = weatherData.city.sunrise * 1000; // Przelicza na milisekundy
+    const sunsetTimestamp = weatherData.city.sunset * 1000; 
 
     const sunriseTime = new Date(sunriseTimestamp);
     const sunsetTime = new Date(sunsetTimestamp);
