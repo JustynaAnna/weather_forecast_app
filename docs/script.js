@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // A function displaying current weather data.
   function displayWeatherData(userLocalTime, weatherData) {
     const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-    const formattedDate = userLocalTime.toLocaleDateString(undefined, options);
+    const formattedDate = userLocalTime.toLocaleDateString('en-US', options);
     const hours = userLocalTime.getHours().toString().padStart(2, '0');
     const minutes = userLocalTime.getMinutes().toString().padStart(2, '0');
     document.querySelector(".current-time").textContent = `${hours}:${minutes} ${formattedDate}`;

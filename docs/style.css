@@ -10,11 +10,16 @@ body, .weather-card {
     background-size: cover;
 }
 
+body{
+    background-attachment: fixed;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
 
 @media (max-width: 768px) {
 
