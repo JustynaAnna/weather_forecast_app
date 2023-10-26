@@ -1,0 +1,19 @@
+:root {
+    --background-image: url(img/stars6.jpg);
+    --text-color: #ffffff;
+    --paragraph-background: rgba(255, 255, 255, 0.1);
+    --icon-background: rgb(68 74 91 / 26%);
+    /* background color for weather icons from OpenWeather */
+    --weather-icon-background: rgb(180 184 208 / 52%);
+    --search-background: #ebfffc;
+    --input-color: #555;
+    --paragraph-text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    --paragraph-box-shado: 5px 5px 10px #191a1a;
+
+    --icon-box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    --paragraph-font-size: 19px;
+    --search-input-font-size: 18px;
+    --error-font-size: 17px;
+    --h1-h2-font-size: 80px;
+    --temp-font-size: 24px
+}

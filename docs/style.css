@@ -5,7 +5,7 @@
 }
 
 body, .weather-card {
-    background-image: url(img/stars6.jpg);
+    background-image: var(--background-image);
     background-position: center;
     background-size: cover;
 }
@@ -32,7 +32,7 @@ body{
 }
 
 .weather-card {
-    color: #ffffff;
+    color: var(--text-color);
     text-align: center;
     margin: 50px auto 0;
     padding: 40px 20px;
@@ -41,12 +41,12 @@ body{
 
 .paragraph-text {
     padding: 0 10px;
-    font-size: 19px;
+    font-size: var(--paragraph-font-size);
     text-transform: uppercase;
     white-space: nowrap;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
-    box-shadow: 5px 5px 10px #191a1a;
-    background-color: rgba(255, 255, 255, 0.1);
+    text-shadow: var(--paragraph-text-shadow);
+    box-shadow: var(--paragraph-box-shado);
+    background-color: var(--paragraph-background);
 }
 
 .search {
@@ -59,14 +59,14 @@ body{
 .search input {
     height: 60px;
     min-width: 0;
-    font-size: 18px;
+    font-size: var(--search-input-font-size);
     margin-right: 16px;
     padding: 10px 25px;
     border: 0;
     border-radius: 30px;
     outline: 0;
-    background: #ebfffc;
-    color: #555;
+    background: var(--search-background);
+    color: var(--input-color);
     flex: 1;
 }
 
@@ -76,7 +76,7 @@ body{
     border: 0;
     border-radius: 50%;
     outline: 0;
-    background: #ebfffc;
+    background: var(--search-background);
     cursor: pointer;
 }
 
@@ -85,7 +85,7 @@ body{
 }
 
 .error {
-    font-size: 17px;
+    font-size: var(--error-font-size);
     text-align: left;
     margin-top: 10px;
     margin-left: 15px;
@@ -112,7 +112,7 @@ body{
 
 .weather h1,
 h2 {
-    font-size: 80px;
+    font-size: var(--h1-h2-font-size);
     font-weight: 500;
     margin-top: 20px;
 }
@@ -124,7 +124,7 @@ h2 {
 .feels-like-temp,
 .future-temp,
 .future-feels-like {
-    font-size: 24px;
+    font-size: var(--temp-font-size);
 }
 
 .details {
@@ -153,8 +153,8 @@ h2 {
 .future-weather-details img {
     margin-right: 10px;
     padding: 3px;
-    background-color: rgb(68 74 91 / 26%);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    background-color: var(--icon-background);
+    box-shadow: var(--icon-box-shadow);
 }
 
 .future-weather {
@@ -169,13 +169,14 @@ h2 {
     margin-top: -20px;
 }
 
-.future-top img,
-.weather-icon {
-    background-color: rgb(180 184 208 / 52%);
+.weather-icon,
+.future-top img {
+    background-color: var(--weather-icon-background);
     border-radius: 50%;
     margin-top: 15px;
     padding: 5px;
 }
+
 .future-weather-description{
     margin: 25px 0;
 }
