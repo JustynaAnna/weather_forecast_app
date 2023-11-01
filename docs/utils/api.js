@@ -7,7 +7,7 @@ import {displayWeatherForNextDays} from './futureWeatherData.js';
 export async function checkWeather(city) {
     // const apiKey = config.apiKey;
     const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
-    const apiKey = process.env.MY_API_KEY;
+   
     const weatherIcon = document.querySelector('.weather-icon');
     let weather = document.querySelector('.weather').style;
     let error = document.querySelector('.error');
