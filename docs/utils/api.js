@@ -1,12 +1,13 @@
-import config from '../config.js';
+// import config from '../config.js'
 import {convertToUserLocalTime} from './convertToUserLocalTime.js';
 import {displayWeatherData} from './displayWeatherData.js';
 import {getSunriseAndSunset} from './getSunriseAndSunset.js';
 import {displayWeatherForNextDays} from './futureWeatherData.js';
 // An asynchronous function checking the weather for a specific city.
 export async function checkWeather(city) {
-    const apiKey = config.apiKey;
+    // const apiKey = config.apiKey;
     const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
+    const apiKey = process.env.MY_API_KEY;
     const weatherIcon = document.querySelector('.weather-icon');
     let weather = document.querySelector('.weather').style;
     let error = document.querySelector('.error');
