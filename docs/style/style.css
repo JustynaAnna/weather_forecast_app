@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-body, .weather-card {
+body, 
+.weather-card {
     background-image: var(--background-image);
     background-position: center;
     background-size: cover;
@@ -20,23 +21,25 @@ body{
     justify-content: space-evenly;
 }
 
-
-@media (max-width: 768px) {
-
-    .future-weather-details,
-    .details {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
-    }
-}
-
 .weather-card {
     color: var(--text-color);
     text-align: center;
     margin: 50px auto 0;
     padding: 40px 20px;
     border-radius: 20px;
+}
+
+.app-title {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.title {
+    color: var(--text-color);
+    font-size: 40px;
+    text-transform: uppercase;
 }
 
 .paragraph-text {

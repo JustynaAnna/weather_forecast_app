@@ -1,17 +1,19 @@
-// import config from '../config.js'
-import {convertToUserLocalTime} from './convertToUserLocalTime.js';
-import {displayWeatherData} from './displayWeatherData.js';
-import {getSunriseAndSunset} from './getSunriseAndSunset.js';
-import {displayWeatherForNextDays} from './futureWeatherData.js';
+import { convertToUserLocalTime } from './convertToUserLocalTime.js';
+import { displayWeatherData } from './displayWeatherData.js';
+import { getSunriseAndSunset } from './getSunriseAndSunset.js';
+import { displayWeatherForNextDays } from './futureWeatherData.js';
+
 // An asynchronous function checking the weather for a specific city.
 export async function checkWeather(city) {
-    // const apiKey = config.apiKey;
+    const apiKey = process.env.MY_API_KEY;
     const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
-   
     const weatherIcon = document.querySelector('.weather-icon');
     let weather = document.querySelector('.weather').style;
     let error = document.querySelector('.error');
     let futureSection = document.querySelector('.future-weather-section').style;
+    // let title = document.querySelector('.app-title');
+    let appTitle = document.querySelector('.app-title').style; // Dodaj pobieranie elementu app-title
+
     // Calling the OpenWeatherMap API and waiting for a response.
     try {
         const response = await fetch(apiUrl + city + `&appid=${apiKey}&cnt=4`);
@@ -35,6 +37,8 @@ export async function checkWeather(city) {
         error.style.display = "none";
         weather.display = "block";
         futureSection.display = "block";
+        document.querySelector('.app-title').style.display = "none";
+        appTitle.display = "none";
         console.log(weatherData);
     } catch (exception) {
         error.textContent = `An error occured: ${exception.message}`;

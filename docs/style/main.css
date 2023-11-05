@@ -1,5 +1,5 @@
 :root {
-    --background-image: url(img/stars6.jpg);
+    --background-image: url(../img/stars6.jpg);
     --text-color: #ffffff;
     --paragraph-background: rgba(255, 255, 255, 0.1);
     --icon-background: rgb(68 74 91 / 26%);
@@ -16,4 +16,4 @@
     --error-font-size: 17px;
     --h1-h2-font-size: 80px;
     --temp-font-size: 24px
-}
+} 
