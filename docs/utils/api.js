@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import { convertToUserLocalTime } from "./convertToUserLocalTime.js";
 import { displayWeatherData } from "./displayWeatherData.js";
 import { getSunriseAndSunset } from "./getSunriseAndSunset.js";
@@ -5,9 +8,8 @@ import { displayWeatherForNextDays } from "./futureWeatherData.js";
 
 // An asynchronous function checking the weather for a specific city.
 export async function checkWeather(city) {
-  // const apiKey = process.env.MY_API_KEY;
-  const apiUrl =
-    "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
+  const apiKey = process.env.SECRET_API_KEY;
+  const apiUrl = process.env.API_BASE_URL;
   const weatherIcon = document.querySelector(".weather-icon");
   let weather = document.querySelector(".weather").style;
   let error = document.querySelector(".error");
@@ -17,7 +19,7 @@ export async function checkWeather(city) {
 
   // Calling the OpenWeatherMap API and waiting for a response.
   try {
-    const response = await fetch(apiUrl + city);
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}&cnt=4`);
     console.log(response);
     if (!response.ok) {
       throw new Error(` Error! Status: ${response.status}`);
@@ -26,7 +28,7 @@ export async function checkWeather(city) {
     const userLocalTime = convertToUserLocalTime(weatherData);
     displayWeatherData(userLocalTime, weatherData);
     const weatherMain = weatherData.list[0].weather[0].icon;
-    const iconUrl = `https://opnweathermap.org/img/wn/${weatherMain.toLowerCase()}@2x.png`;
+    const iconUrl = `https://openweathermap.org/img/wn/${weatherMain.toLowerCase()}@2x.png`;
     weatherIcon.src = iconUrl;
 
     // Add Sunrise and Sunset Information
