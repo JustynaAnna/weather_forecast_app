@@ -1,6 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import { convertToUserLocalTime } from "./convertToUserLocalTime.js";
 import { displayWeatherData } from "./displayWeatherData.js";
 import { getSunriseAndSunset } from "./getSunriseAndSunset.js";
@@ -8,24 +5,26 @@ import { displayWeatherForNextDays } from "./futureWeatherData.js";
 
 // An asynchronous function checking the weather for a specific city.
 export async function checkWeather(city) {
-  const apiKey = process.env.SECRET_API_KEY;
-  const apiUrl = process.env.API_BASE_URL;
+  console.log("checkWeather function called with city:", city);
   const weatherIcon = document.querySelector(".weather-icon");
   let weather = document.querySelector(".weather").style;
   let error = document.querySelector(".error");
   let futureSection = document.querySelector(".future-weather-section").style;
-  // let title = document.querySelector('.app-title');
   let appTitle = document.querySelector(".app-title").style; // Dodaj pobieranie elementu app-title
 
   // Calling the OpenWeatherMap API and waiting for a response.
   try {
-    const response = await fetch(apiUrl + city + `&appid=${apiKey}&cnt=4`);
+    const response = await fetch(`http://localhost:3000/weather/${city}`);
     console.log(response);
     if (!response.ok) {
       throw new Error(` Error! Status: ${response.status}`);
     }
-    const weatherData = await response.json();
+    const responseData = await response.json();
+    const weatherData = responseData.weatherData;
+    // const weatherData = await response.json();
+    console.log("Received weather data:", weatherData);
     const userLocalTime = convertToUserLocalTime(weatherData);
+    console.log(userLocalTime);
     displayWeatherData(userLocalTime, weatherData);
     const weatherMain = weatherData.list[0].weather[0].icon;
     const iconUrl = `https://openweathermap.org/img/wn/${weatherMain.toLowerCase()}@2x.png`;
@@ -45,6 +44,7 @@ export async function checkWeather(city) {
     console.log(weatherData);
   } catch (exception) {
     error.textContent = `An error occured: ${exception.message} `;
+    console.log(exception);
     error.style.display = "block";
     weather.display = "none";
     futureSection.display = "none";
