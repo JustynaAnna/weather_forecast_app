@@ -6,15 +6,15 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-app.use(express.static("docs/public"));
+app.use(express.static("docs"));
 const PORT = process.env.PORT || 3000;
 console.log("Starting server...");
 app.use(cors());
 
-app.get("/", (req, res) => {
-  console.log("Redirecting to /docs/public");
-  res.redirect("/docs/public");
-});
+// app.get("/", (req, res) => {
+//   console.log("Redirecting to /docs/public");
+//   res.redirect("/docs/public");
+// });
 
 // Obsługa endpointu /weather/:city
 app.get("/weather/:city", async (req, res) => {
