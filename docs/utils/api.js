@@ -11,10 +11,11 @@ export async function checkWeather(city) {
   let error = document.querySelector(".error");
   let futureSection = document.querySelector(".future-weather-section").style;
   let appTitle = document.querySelector(".app-title").style; // Dodaj pobieranie elementu app-title
-
+  const baseUrl = "https://weather-forecast-app-lemon-one.vercel.app/";
   // Calling the OpenWeatherMap API and waiting for a response.
   try {
-    const response = await fetch(`http://localhost:3000/weather/${city}`);
+    // const response = await fetch(`http://localhost:3000/weather/${city}`);
+    const response = await fetch(`${baseUrl}/weather/${city}`);
     console.log(response);
     if (!response.ok) {
       throw new Error(` Error! Status: ${response.status}`);
