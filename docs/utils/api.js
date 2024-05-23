@@ -15,7 +15,8 @@ export async function checkWeather(city) {
   // Calling the OpenWeatherMap API and waiting for a response.
   try {
     // const response = await fetch(`http://localhost:3000/weather/${city}`);
-    const response = await fetch(`${baseUrl}/weather/${city}`);
+    // const response = await fetch(`${baseUrl}/weather/${city}`);
+    const response = await fetch(`/weather/${city}`);
     console.log(response);
     if (!response.ok) {
       throw new Error(` Error! Status: ${response.status}`);
